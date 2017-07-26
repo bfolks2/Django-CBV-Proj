@@ -1,0 +1,17 @@
+{% extends "basic_app/basic_app_base.html" %}
+{% block body_block %}
+  <h1>
+    {% if not form.instance.pk %} <!--If the primary key does not exist, then tneither does he school, so it must be created -->
+      Create School
+    {% else %}
+      Update School
+    {% endif %}
+  </h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" name="" value="Submit">
+  </form>
+
+{% endblock %}
